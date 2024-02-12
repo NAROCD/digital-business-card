@@ -21,9 +21,17 @@ function App() {
         </div>
 
         <div className="back">
-          <h2>Daniel Narovec</h2>
-          <p>Junior SAP Developer</p>
-          <p>Sabris Consulting s.r.o.</p>
+          <div className="text-row">
+            <h2 className="text-item">Daniel Narovec</h2>
+            <p className="text-item">Junior SAP Developer</p>
+            <p className="text-item">Sabris Consulting s.r.o.</p>
+          </div>
+
+          <div className="qr-row">
+            <QRCode
+              value={`mailto:example@example.com?subject=Contact&body=Email: example@example.com%0APhone: 123456789`}
+            />
+          </div>
         </div>
       </div>
     </div>
