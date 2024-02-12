@@ -1,13 +1,13 @@
 # Digital Business Card
 
-This is a digital business card application built with React.
+This is a digital business card application built with React. It allows you to create a personalized digital business card that can be shared easily. The application also generates a QR code for easy contact sharing.
 
 ## Features
 
-- Display contact information
-- Showcase professional skills and experience
-- Provide links to social media profiles
-- Generate a QR code for easy contact sharing
+- **Display Contact Information**: Show your name, job title, email, and phone number.
+- **Showcase Professional Skills and Experience**: Highlight your skills and professional experience.
+- **Provide Links to Social Media Profiles**: Include links to your LinkedIn, GitHub, Twitter, and other social media profiles.
+- **Generate a QR Code**: Create a QR code that links to your digital business card for easy sharing.
 
 ## Installation
 
@@ -24,6 +24,10 @@ This is a digital business card application built with React.
 ## Configuration
 
 You can customize the content of the digital business card by modifying the `src/App.js` file. Update the contact information, skills, experience, and social media links according to your preferences.
+
+## Contributing
+
+If you want to contribute to this project, please create a new branch, make your changes, and submit a pull request. All contributions are welcome!
 
 ## Author
 
