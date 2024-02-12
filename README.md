@@ -11,7 +11,7 @@ This is a digital business card application built with React.
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/digital-business-card.git`
+1. Clone the repository: `git clone https://github.com/NAROCD/digital-business-card.git`
 2. Navigate to the project directory: `cd digital-business-card`
 3. Install dependencies: `npm install`
 
@@ -28,4 +28,3 @@ You can customize the content of the digital business card by modifying the `src
 ## Author
 
 Daniel Narovec
-
