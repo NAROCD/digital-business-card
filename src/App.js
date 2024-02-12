@@ -1,39 +1,61 @@
 // App.js
 import React, { useState } from "react";
-import QRCode from "qrcode.react";
 import "./App.css";
+import Card from "./components/card";
+import Form from "./components/form";
 
 function App() {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    title: "",
+    company: "",
+    phone: "",
+    email: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
   };
 
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  const vCardInfo = `BEGIN:VCARD
+VERSION:3.0
+N:${formData.name.split(" ")[1]};${formData.name.split(" ")[0]};;;
+FN:${formData.name}
+ORG:${formData.company};
+TEL;TYPE=work,voice;VALUE=uri:tel:${formData.phone}
+EMAIL:${formData.email}
+END:VCARD
+`;
+
   return (
     <div className="App">
-      <div
-        className={`card ${isFlipped ? "flipped" : ""}`}
-        onClick={handleCardClick}
-      >
-        <div className="front">
-          <img src={"/logo.png"} alt="Logo" className="logo" />
-        </div>
-
-        <div className="back">
-          <div className="text-row">
-            <h2 className="text-item">Daniel Narovec</h2>
-            <p className="text-item">Junior SAP Developer</p>
-            <p className="text-item">Sabris Consulting s.r.o.</p>
-          </div>
-
-          <div className="qr-row">
-            <QRCode
-              value={`mailto:example@example.com?subject=Contact&body=Email: example@example.com%0APhone: 123456789`}
-            />
-          </div>
-        </div>
-      </div>
+      {!isSubmitted && (
+        <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+      )}
+      {isSubmitted && (
+        <Card
+          isFlipped={isFlipped}
+          handleCardClick={handleCardClick}
+          vCardInfo={vCardInfo}
+          name={formData.name}
+          title={formData.title}
+          company={formData.company}
+        />
+      )}
     </div>
   );
 }
