@@ -36,10 +36,11 @@ VERSION:3.0
 N:${formData.name.split(" ")[1]};${formData.name.split(" ")[0]};;;
 FN:${formData.name}
 ORG:${formData.company};
-TEL;TYPE=work,voice;VALUE=uri:tel:${formData.phone}
+TEL;TYPE=work,voice;VALUE=uri:${formData.phone}
 EMAIL:${formData.email}
 END:VCARD
 `;
+  console.log(vCardInfo);
 
   return (
     <div className="App">
