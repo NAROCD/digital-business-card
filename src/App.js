@@ -40,7 +40,6 @@ TEL;TYPE=work,voice;VALUE=uri:${formData.phone}
 EMAIL:${formData.email}
 END:VCARD
 `;
-  console.log(vCardInfo);
 
   return (
     <div className="App">
