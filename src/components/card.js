@@ -1,7 +1,6 @@
 // Card.js
 import React from "react";
 import QRCode from "qrcode.react";
-import logo from "./logo.png";
 
 const Card = ({
   isFlipped,
@@ -10,6 +9,7 @@ const Card = ({
   name,
   title,
   company,
+  logo,
 }) => {
   return (
     <div

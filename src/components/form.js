@@ -1,7 +1,7 @@
 // Form.js
 import React from "react";
 
-const Form = ({ handleChange, handleSubmit }) => {
+const Form = ({ handleChange, handleSubmit, handleLogoChange }) => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <input
@@ -39,6 +39,7 @@ const Form = ({ handleChange, handleSubmit }) => {
         onChange={handleChange}
         required
       />
+      <input type="file" name="logo" onChange={handleLogoChange} />
       <button type="submit">Generate Card</button>
     </form>
   );

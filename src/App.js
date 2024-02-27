@@ -26,6 +26,22 @@ function App() {
     });
   };
 
+  const handleLogoChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setFormData({
+        ...formData,
+        logo: reader.result,
+      });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitted(true);
@@ -44,7 +60,11 @@ END:VCARD
   return (
     <div className="App">
       {!isSubmitted && (
-        <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+        <Form
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleLogoChange={handleLogoChange}
+        />
       )}
       {isSubmitted && (
         <Card
@@ -54,6 +74,7 @@ END:VCARD
           name={formData.name}
           title={formData.title}
           company={formData.company}
+          logo={formData.logo}
         />
       )}
     </div>
