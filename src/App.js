@@ -4,6 +4,7 @@ import "./App.css";
 import Card from "./components/card";
 import Form from "./components/form";
 
+
 function App() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,10 +32,15 @@ function App() {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      setFormData({
-        ...formData,
-        logo: reader.result,
-      });
+      const result = reader.result;
+      if (isValidDataURL(result)) {
+        setFormData({
+          ...formData,
+          logo: result,
+        });
+      } else {
+        alert("Invalid logo file format.");
+      }
     };
 
     if (file) {
